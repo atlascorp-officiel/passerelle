@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ATLASCORP — Accès & Solutions</title>
-  <meta name="description" content="ATLASCORP : vitrine moderne pour vos services — streaming privé, solutions digitales, bibliothèque PDF.">
+  <meta name="description" content="ATLASCORP : votre passerelle vers le numérique — TV privée, outils connectés, ebook de qualiter avec garantie, tout ce qu’il vous faut, simplement. ">
   <style>
     :root{
-      --bg:#0b1220;        /* bleu nuit */
-      --ink:#eaf2ff;       /* texte clair */
-      --muted:#a7b5d1;     /* texte secondaire */
-      --primary:#2fb1ff;   /* bleu néon */
-      --accent:#7df9ff;    /* accent clair */
-      --card:#0f1a30;      /* cartes */
+      --bg:#0b1220;
+      --ink:#eaf2ff;
+      --muted:#a7b5d1;
+      --primary:#2fb1ff;
+      --accent:#7df9ff;
+      --card:#0f1a30;
       --border:rgba(255,255,255,.08);
     }
     *{box-sizing:border-box}
@@ -25,19 +25,49 @@
     .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
     .logo-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 20px var(--primary)}
     .nav-links a{margin-left:18px;font-weight:600}
-    /* HERO */
     .hero{
       position:relative;overflow:hidden;
       background:
         radial-gradient(900px 400px at 80% 10%, rgba(47,177,255,.25), transparent 60%),
         radial-gradient(800px 500px at 20% 20%, rgba(125,249,255,.2), transparent 60%),
         linear-gradient(180deg, #0b1220 0%, #0b1220 40%, #0b1220 100%);
-      padding:88px 0 64px;
+      padding:72px 0 64px;
       border-bottom:1px solid var(--border);
     }
     .hero .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
-    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:14px}
-    h1{font-size:44px;line-height:1.1;margin:14px 0 12px}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border:1px solid var(--border);
+      padding:4px 10px;
+      border-radius:999px;
+      color:var(--ink);
+      font-size:12px;
+      font-weight:600;
+      background:linear-gradient(90deg, rgba(47,177,255,.15), rgba(125,249,255,.1));
+      box-shadow:0 0 10px rgba(125,249,255, 0.2);
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0% {transform: scale(1); box-shadow: 0 0 0 rgba(47,177,255, 0.3);}
+      50% {transform: scale(1.06); box-shadow: 0 0 14px rgba(47,177,255, 0.6);}
+      100% {transform: scale(1); box-shadow: 0 0 0 rgba(47,177,255, 0.3);}
+    }
+    h1{
+      font-size:44px;
+      line-height:1.1;
+      margin:14px 0 12px;
+      background:linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation: slideIn 1.2s ease-out forwards;
+      opacity:0;
+    }
+    @keyframes slideIn {
+      from {transform: translateY(20px);opacity: 0;}
+      to {transform: translateY(0);opacity: 1;}
+    }
     .lead{color:var(--muted);font-size:18px;margin-bottom:22px}
     .cta{display:flex;gap:12px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--border);font-weight:700}
@@ -50,7 +80,6 @@
         linear-gradient(180deg,#0b1220 0%,#0f1a30 60%,#0b1220 100%);
       box-shadow:inset 0 0 80px rgba(127,249,255,.05);
     }
-    /* SERVICES */
     section{padding:56px 0}
     .section-title{font-size:28px;margin:0 0 8px}
     .section-sub{color:var(--muted);margin:0 0 24px}
@@ -58,11 +87,9 @@
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
     .card h3{margin:6px 0 8px}
     .chip{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:12px}
-    /* PROCESS */
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .step{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px}
     .step .n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--primary);color:#001428;font-weight:800;margin-right:8px}
-    /* FOOTER */
     footer{border-top:1px solid var(--border);color:var(--muted);padding:24px 0 40px}
     .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     @media (max-width:920px){
@@ -73,7 +100,6 @@
   </style>
 </head>
 <body>
-
 <header>
   <div class="container">
     <nav>
@@ -86,29 +112,33 @@
     </nav>
   </div>
 </header>
-
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="container grid hero grid">
       <div>
         <span class="badge">Technologie & Accès privé</span>
-        <h1>Vitrine moderne pour vos services</h1>
-        <p class="lead">Streaming premium, solutions digitales, bibliothèque PDF — le tout dans une expérience simple, sécurisée et élégante.</p>
+        <h1>Profitez de formations utiles, de contenus exclusifs et d’abonnements à prix doux — tout est pensé pour vous simplifier la vie</h1>
+        <p class="lead">votre passerelle vers le numérique — TV privée, outils connectés, ebook de qualiter avec garantie, tout ce qu’il vous faut, simplement.</p>
         <div class="cta">
           <a class="btn primary" href="#services">Voir les services</a>
-          <a class="btn ghost" href="https://wa.me/243XXXXXXXXX?text=Bonjour%20je%20veux%20des%20infos%20ATLASCORP" target="_blank">Commander sur WhatsApp</a>
+          <a class="btn ghost" href="https://wa.me/243814095100?text=Bonjour%20je%20veux%20des%20infos%20ATLASCORP" target="_blank">Commander sur WhatsApp</a>
         </div>
       </div>
-      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-art" aria-hidden="true">
+  <!-- Galerie d’images produits -->
+  <div style="display: flex; gap: 10px; justify-content: center; align-items: center; flex-wrap: wrap; padding-top: 10px;">
+    <img src="images/produit1.jpg" alt="Produit 1" style="width: 80px; height: auto; border-radius: 8px;">
+    <img src="images/produit2.jpg" alt="Produit 2" style="width: 80px; height: auto; border-radius: 8px;">
+    <img src="images/produit3.jpg" alt="Produit 3" style="width: 80px; height: auto; border-radius: 8px;">
+  </div>
+</div>
+
     </div>
   </section>
-
-  <!-- SERVICES -->
   <section id="services">
     <div class="container">
       <h2 class="section-title">Nos services</h2>
-      <p class="section-sub">Un point d’entrée unique pour plusieurs offres. (Tu pourras changer les textes plus tard.)</p>
+      <p class="section-sub">Un seul espace pour découvrir, choisir et accéder à tout ce dont vous avez besoin. </p>
       <div class="cards">
         <div class="card">
           <span class="chip">Streaming</span>
@@ -128,8 +158,6 @@
       </div>
     </div>
   </section>
-
-  <!-- PROCESS -->
   <section id="process">
     <div class="container">
       <h2 class="section-title">Comment ça marche</h2>
@@ -141,8 +169,6 @@
       </div>
     </div>
   </section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Contact</h2>
@@ -154,18 +180,14 @@
     </div>
   </section>
 </main>
-
 <footer>
   <div class="container foot">
     <div>© <span id="y"></span> ATLASCORP — Tous droits réservés.</div>
     <div>Identité sobre, moderne et rapide à charger.</div>
   </div>
 </footer>
-
 <script>
-  // année automatique
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
