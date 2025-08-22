@@ -103,7 +103,30 @@
     }
     section{padding:56px 0}
     .section-title{font-size:28px;margin:0 0 8px}
-    .section-sub{color:var(--muted);margin:0 0 24px}
+    .section-sub.highlighted {
+  background: linear-gradient(90deg, rgba(47,177,255,0.2), rgba(125,249,255,0.1));
+  padding: 10px 16px;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  animation: fadeHighlight 1.2s ease-out, waterWave 6s ease-in-out infinite;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  background-size: 400% 400%;
+}
+
+@keyframes fadeHighlight {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes waterWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
     .card h3{margin:6px 0 8px}
@@ -117,6 +140,7 @@
       .hero .grid{grid-template-columns:1fr}
       .cards,.steps{grid-template-columns:1fr}
       h1{font-size:34px}
+      
     }
   </style>
 </head>
@@ -157,22 +181,22 @@
   <section id="services">
     <div class="container">
       <h2 class="section-title">Nos services</h2>
-      <p class="section-sub">Un seul espace pour découvrir, choisir et accéder à tout ce dont vous avez besoin. </p>
+      <p class="section-sub highlighted">Un seul espace pour explorer et sélectionner le produit ou le service qui vous intéresse. Choisissez en toute simplicité </p>
       <div class="cards">
         <div class="card">
   <span class="chip">Digital</span>
-  <img src="images/abocanal.png" alt="Solutions numériques" style="width:100%;border-radius:12px;margin:12px 0;">
+   <img src="images/abocanal.png" alt="Solutions numériques" style="width:100%;border-radius:12px;margin:12px 0;">
   <h3>Solutions numériques</h3>
   <p>Sites légers, automatisations et passerelles d’accès pour vos projets.</p>
 </div>
         <div class="card">
           <span class="chip">Digital</span>
-          <img src="images/abodeezer.jpg" alt="Solutions numériques" style="width:100%;border-radius:12px;margin:12px 0;">
+         <img src="images/abodeezer.jpg" alt="Solutions numériques" style="width:100%;border-radius:12px;margin:12px 0;">
           <h3>Solutions numériques</h3>
           <p>Sites légers, automatisations et passerelles d’accès pour vos projets.</p>
         </div>
         <div class="card">
-          <span class="chip">PDF</span>
+          <span class="chip">Formation ebook</span>
           <img src="images/abospotify.jpeg" alt="Solutions numériques" style="width:100%;border-radius:12px;margin:12px 0;">
           <h3>Bibliothèque PDF</h3>
           <p>Livres numériques sélectionnés, prêts à être consultés sur vos appareils.</p>
