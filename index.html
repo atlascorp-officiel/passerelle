@@ -126,8 +126,49 @@
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <img src="images/abodeezer.jpg" alt="Produit en vedette" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
+        <div class="carousel">
+          <img src="images/produit1.jpg" class="active" alt="Produit 1">
+          <img src="images/produit2.jpg" alt="Produit 2">
+          <img src="images/produit3.jpg" alt="Produit 3">
+        </div>
       </div>
+...
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    border-radius: 16px;
+  }
+  .carousel img.active {
+    opacity: 1;
+    z-index: 2;
+  }
+</style>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  let index = 0;
+  const slides = document.querySelectorAll('.carousel img');
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 3500);
+</script>
+
     </div>
   </section>
   <section id="services">
