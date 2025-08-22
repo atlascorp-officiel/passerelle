@@ -81,6 +81,26 @@
       box-shadow:inset 0 0 80px rgba(127,249,255,.05);
       display: flex; justify-content: center; align-items: center; overflow: hidden; padding: 0;
     }
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      border-radius: 16px;
+    }
+    .carousel img.active {
+      opacity: 1;
+      z-index: 2;
+    }
     section{padding:56px 0}
     .section-title{font-size:28px;margin:0 0 8px}
     .section-sub{color:var(--muted);margin:0 0 24px}
@@ -132,52 +152,6 @@
           <img src="images/abocanal.png"  alt="abocanal">
         </div>
       </div>
-...
-
-<style>
-  .carousel {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  .carousel img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    border-radius: 16px;
-  }
-  .carousel img.active {
-    opacity: 1;
-    z-index: 2;
-  }
-</style>
-
-<script>
-  // Initialisation du carrousel seulement si les images sont bien chargées
-  window.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.carousel img');
-    let index = 0;
-
-    // Fonction de rotation
-    function rotateSlides() {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-      });
-      slides[index].classList.add('active');
-      index = (index + 1) % slides.length;
-    }
-
-    // Lancement de la rotation
-    rotateSlides(); // Démarre avec le premier affichage
-    setInterval(rotateSlides, 3500);
-  });
-</script>
-
     </div>
   </section>
   <section id="services">
@@ -233,6 +207,20 @@
 </footer>
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.carousel img');
+    let index = 0;
+
+    function rotateSlides() {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+      index = (index + 1) % slides.length;
+    }
+
+    rotateSlides();
+    setInterval(rotateSlides, 3500);
+  });
 </script>
 </body>
 </html>
